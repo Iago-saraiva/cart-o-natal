@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('Gemini_Generated_Image_y9dzdky9dzdky9dz.jpg');
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+   /* Estilo para o letreiro */
+    .letreiro {
+    width: 100%;
+    white-space: nowrap;  /* Impede a quebra de linha */
+    overflow: hidden;     /* Esconde qualquer conteúdo que ultrapasse o limite */
+    box-sizing: border-box;
+    margin: 30px 4%;
+}
+
+.texto-letreiro {
+    display: flex;
+    animation: mover 10s linear infinite;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    color: #fff; 
+    font-weight: bold;
+}
+
+/* Animação de movimento */
+@keyframes mover {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+  
+  /* Container do cartão */
+  .card-container {
+    margin-left: 300px;
+    perspective: 1000px;
+    transition: .2s;
+}
+
+  .card-container:hover {
+      transform: scale(1.09);
+  }
+  
+  /* Cartão com efeitos 3D */
+  .card {
+    width: 400px;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
+  }
+  
+  .card .front, .card .back {
+    border-radius: 3px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Frente do cartão */
+  .card .front {
+    background-color: #e91109;
+    color: white;
+    font-size: 24px;
+    flex-direction: column;
+  }
+  
+  /* Verso do cartão */
+  .card .back {
+    background-color: #a9c6cf;
+    color: black;
+    transform: rotateY(180deg);
+    font-size: 20px;
+  }
+  
+  /* Botão para abrir o cartão */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+button:hover {
+    transform: scale(1.4);
+}
+
+/* efeitos da neve  */
+
+
+  .snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: url('snowflake.png') repeat;
+    animation: snow-fall 10s linear infinite;
+  }
+  
+  /* Efeito de estrelas piscando */
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: url('stars.png') repeat;
+    animation: star-blink 1s infinite alternate;
+  }
+  
+  /* Animação de queda da neve */
+  @keyframes snow-fall {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  
+  /* Animação das estrelas piscando */
+  @keyframes star-blink {
+    0% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .snowflake {
+    position: absolute;
+    top: -10px;
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateX(100px) translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.snowflake:nth-child(odd) {
+    animation-duration: 5s;
+    animation-delay: 0s;
+}
+
+.snowflake:nth-child(even) {
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
+
+/* boneco de neve */
+
+*, *::after, *::before{
+  box-sizing: border-box;
+  --cabeca: 120px;
+  --corpo: 160px;
+  --perna: 200px;
+  --tamanho-chapeu: 100px;
+  
+  --azul-fundo: #1294b5;
+  --branco-boneco: #e9f6f8;
+  --chapeu: #105462;
+  --preto: black;
+}
+
+*::after, *::before{
+  content: "";
+  position: relative;
+  display: block;
+}
+
+body{
+  background: var(--azul-fundo);
+}
+
+.cabeca, .corpo, .perna{
+  background: var(--branco-boneco);
+}
+
+.wrapper{
+  display: block;
+  width: 90vw;
+  height: 90vh;
+  margin: 0 auto;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
+.chapeu{
+  width: var(--tamanho-chapeu);
+  margin: 0 auto;
+  height: calc(var(--tamanho-chapeu) / 1.3);
+  background: var(--chapeu);
+  border: solid 1px var(--preto);
+}
+
+.chapeu::before{
+  width: var(--chapeu);
+  height: 20px;
+  top: 58px;
+  background: #20adc8;
+  border-top: solid 1px var(--preto);
+}
+
+.chapeu::after{
+  left: -20px;
+  top: 55px;
+  width: 140px;
+  height: 20px;
+  background: var(--chapeu);
+  border-radius: 5px;
+  border: solid 1px var(--preto);
+}
+
+.cabeca{
+  margin: 0 auto;
+  width: var(--cabeca);
+  height: var(--cabeca);
+  border-radius: 100%;
+  z-index: 10;
+  box-shadow: 0px 0px 5px;
+}
+
+.cabeca > .olho{
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius:100%;
+  margin: 0 auto;
+  top: 40px;
+  left: -20px;
+  background: var(--chapeu);
+  box-shadow: 40px 0px var(--chapeu);
+}
+
+.cabeca > .nariz{
+  position: relative;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  top: 45px;
+  left: 2px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 30px solid var(--chapeu);
+}
+
+.cabeca > .boca{
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin: 0 auto;
+  border-radius: 100%;
+  top: 40px;
+  left: -30px;
+  background: var(--chapeu);
+  box-shadow: 15px 10px var(--chapeu), 30px 10px var(--chapeu), 45px 10px var(--chapeu), 60px 0px var(--chapeu);
+}
+
+
+
+.corpo{
+  position: relative;
+  margin: 0 auto;
+  width: var(--corpo);
+  height: calc(var(--corpo) - 15px);
+  border-radius: 100%;  
+  top: -20px;
+  z-index: -1;
+  box-shadow: 0px 0px 5px;
+}
+
+
+.corpo > .botao{
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  margin: 0 auto;
+  top: 40px;
+  background: var(--chapeu);
+  box-shadow: 0px 30px var(--chapeu), 0px 60px var(--chapeu);
+}
+
+.bracoEsquerdo{
+  position: relative;
+  width: 80px;
+  height: 15px;
+  margin: 0 auto;
+  left: -100px;
+  top: -120px;
+  z-index: -2;
+  background: var(--chapeu);
+  transform: rotate(-10deg);
+}
+
+.bracoEsquerdo::before{
+  width: 100px;
+  height: 15px;
+  background: var(--chapeu);
+  left: -80px;
+  top: 33px;
+  transform: rotate(-45deg);
+}
+
+.bracoDireito{
+  position: relative;
+  width: 140px;
+  height: 15px;
+  margin: 0 auto;
+  left: 110px;
+  top: -140px;
+  z-index: -2;
+  background: var(--chapeu);
+  transform: rotate(-5deg);
+}
+
+.bracoDireito::before{
+  width: 60px;
+  height: 15px;
+  background: var(--chapeu);
+  left:126px;
+  top: -20px;
+  transform: rotate(-45deg);
+}
+
+.perna{
+  position: relative;
+  width: var(--perna);
+  height: calc(var(--perna) - 10px);
+  margin: 0 auto;
+  border-radius: 100%;
+  top: -100px;
+  z-index: -2;
+  box-shadow: 0px 0px 5px;
+}
+
+.montanha{
+}
